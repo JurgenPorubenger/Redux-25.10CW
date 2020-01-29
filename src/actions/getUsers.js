@@ -8,13 +8,19 @@ import {
 
 export const getUsers = () => {
     return async (dispatch) => {
-        dispatch({
-        type: USERS_LOADING
-    })
-    const data = await axios.get('https://jsonplaceholder.typicode.com/todos')
-    return await dispatch({
-        type: USERS_SUCCESS,
-        users: data.data,
-    })
-}
+        try {
+            dispatch({
+                type: USERS_LOADING
+            });
+            const data = await axios.get('https://jsonplaceholder.typicode.com/tod');
+            return await dispatch({
+                type: USERS_SUCCESS,
+                users: data.data,
+            })
+        } catch (e) {
+            return await dispatch({
+                type: USERS_ERR,
+            })
+        }
+        }
   };

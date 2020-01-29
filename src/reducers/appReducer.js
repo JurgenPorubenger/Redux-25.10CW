@@ -15,22 +15,22 @@ const initialState = {
 
 export default function(state=initialState, action){
     switch (action.type) {
-        case HANDLE_INC: 
+        case HANDLE_INC:
             return state;
-        case USERS_LOADING: 
+        case USERS_LOADING:
             return update(state, {
                 status: { $set: 'loading'}
             })
-        case USERS_SUCCESS: 
+        case USERS_SUCCESS:
             console.log(state)
             return update(state, {
                 users: { $set: action.users },
                 status: { $set: 'success'},
-                
-            })
-            console.log(state)
-        case USERS_ERR: 
-            update(state, {
+
+            });
+            console.log(state);
+        case USERS_ERR:
+            return update(state, {
                 status: { $set: 'err'}
             })
         default:
