@@ -11,7 +11,7 @@ const initialState = {
     count: 0,
     users: [],
     status: 'loading' // loading/success/err
-}
+};
 
 export default function(state=initialState, action){
     switch (action.type) {
@@ -28,11 +28,10 @@ export default function(state=initialState, action){
                 status: { $set: 'success'},
 
             });
-            console.log(state);
         case USERS_ERR:
             return update(state, {
                 status: { $set: 'err'}
-            })
+            });
         default:
             return state;
     }
