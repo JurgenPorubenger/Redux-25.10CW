@@ -12,7 +12,7 @@ export const getUsers = () => {
             dispatch({
                 type: USERS_LOADING
             });
-            const data = await axios.get('https://jsonplaceholder.typicode.com/tod');
+            const data = await axios.get('https://jsonplaceholder.typicode.com/todos');
             return await dispatch({
                 type: USERS_SUCCESS,
                 users: data.data,
