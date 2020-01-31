@@ -1,6 +1,5 @@
 import axios from 'axios';
 import {
-    HANDLE_INC,
     USERS_SUCCESS,
     USERS_LOADING,
     USERS_ERR
@@ -12,7 +11,7 @@ export const getUsers = () => {
             dispatch({
                 type: USERS_LOADING
             });
-            const data = await axios.get('https://jsonplaceholder.typicode.com/todos');
+            const data = await axios.get('http://localhost:3001');
             return await dispatch({
                 type: USERS_SUCCESS,
                 users: data.data,

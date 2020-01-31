@@ -11,7 +11,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.19.2",
     "http-status": "^1.4.2",
+    "koa": "^2.11.0",
     "koa-bodyparser": "^4.2.1",
     "koa-cors": "0.0.16",
     "koa-logger": "^3.2.1",

@@ -7,13 +7,11 @@ export class index extends Component {
     constructor(props){
         super(props);
     }
-
     componentDidMount() {
+        console.log("THIS PROPS:"+this.props.getUsers);
         const {  getUsers } = this.props;
         getUsers();
     }
-
-
     render() {
         const { status, users } = this.props;
         console.log(status, users);
@@ -22,10 +20,9 @@ export class index extends Component {
             data = <h1>Loading</h1>
         }
         else if (status === 'success') {
-            console.log(123)
             return data = users.map((el, idx) => {
                 return (
-                    <div style={{border: '1px solid'}}>
+                    <div key={idx} style={{border: '1px solid'}}>
                         <h4>{el.id}</h4>
                         <h4>{el.title}</h4>
                     </div>
@@ -33,8 +30,6 @@ export class index extends Component {
             })
         }
         else {
-            console.log('STATUS',status);
-
             return(
                 <div>
                     {'Error'}

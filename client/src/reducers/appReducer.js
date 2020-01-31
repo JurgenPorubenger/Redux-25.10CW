@@ -1,5 +1,4 @@
 import {
-    HANDLE_INC,
     USERS_SUCCESS,
     USERS_LOADING,
     USERS_ERR
@@ -15,8 +14,6 @@ const initialState = {
 
 export default function(state=initialState, action){
     switch (action.type) {
-        case HANDLE_INC:
-            return state;
         case USERS_LOADING:
             return update(state, {
                 status: { $set: 'loading'}
