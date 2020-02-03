@@ -11,7 +11,7 @@ export const getUsers = () => {
             dispatch({
                 type: USERS_LOADING
             });
-            const data = await axios.get('http://localhost:3001');
+            const data = await axios.get('http://localhost:3001/remainingTodos');
             return await dispatch({
                 type: USERS_SUCCESS,
                 users: data.data,

@@ -17,9 +17,9 @@ export default function(state=initialState, action){
         case USERS_LOADING:
             return update(state, {
                 status: { $set: 'loading'}
-            })
+            });
         case USERS_SUCCESS:
-            console.log(state)
+            console.log(state);
             return update(state, {
                 users: { $set: action.users },
                 status: { $set: 'success'},

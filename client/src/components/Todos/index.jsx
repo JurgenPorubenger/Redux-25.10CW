@@ -55,6 +55,6 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = dispatch => {
     return {getUsers: ()=>{ dispatch(getUsersAction()) } }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(index)
