@@ -1,16 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Provider } from 'react-redux';
 import store from './store';
 import MainPage from './containers/Main';
+import { browserHistory ,BrowserRouter as Router, Route } from 'react-router-dom'
+// import createBrowserHistory from 'history/createBrowserHistory'
+// const history = createBrowserHistory();
 
 function App() {
   return (
-    <Provider store={store}>
-      <MainPage />  
-    </Provider>
-  );
+      <Router>
+        <Provider store={store}>
+            <Route path="/" component={MainPage} />
+        </Provider>
+      </Router>
+      );
 }
 
 export default App;

@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import Todos from '../../components/Todos';
+import { BrowserRouter, Route, Router } from 'react-router-dom'
 
-class index extends Component {
-    render() {
+export default() => {
         return (
-            <div>
-                <Todos />
-            </div>
+                <div>
+                    <Todos />
+                </div>
         );
     }
-}
 
-export default index;

@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import { getUsers as getUsersAction } from '../../actions/getUsers';
+import {Link, BrowserRouter as Router, Route } from 'react-router-dom'
 
 export class index extends Component {
     // eslint-disable-next-line no-useless-constructor
     constructor(props){
         super(props);
     }
+    handleClick(e, index){return   }
     componentDidMount() {
         console.log("THIS PROPS:"+this.props.getUsers);
         const {  getUsers } = this.props;
@@ -22,11 +24,13 @@ export class index extends Component {
         else if (status === 'success') {
             return data = users.map((el, idx) => {
                 return (
-                    <div key={idx} style={{border: '1px solid'}}>
-                        <h4>{el.id}</h4>
-                        <h4>{el.title}</h4>
-                    </div>
-                )
+                    <Link>
+                        <div key={idx} style={{border: '1px solid'}}>
+                            <h4>{el.id}</h4>
+                            <h4>{el.title}</h4>
+                        </div>
+                    </Link>
+                    )
             })
         }
         else {
