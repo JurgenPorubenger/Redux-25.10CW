@@ -1,14 +1,13 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux';
-import { getUsers as getUsersAction } from '../../actions/getUsers';
+import React, { Component, useEffect } from 'react'
+import { connect, useDispatch, useSelector } from 'react-redux';
+import  getUsersAction  from '../../actions/getUsers';
 import {Link, BrowserRouter as Router, Route } from 'react-router-dom'
 
+
 export class index extends Component {
-    // eslint-disable-next-line no-useless-constructor
     constructor(props){
         super(props);
     }
-    handleClick(e, index){return   }
     componentDidMount() {
         console.log("THIS PROPS:"+this.props.getUsers);
         const {  getUsers } = this.props;
@@ -24,7 +23,7 @@ export class index extends Component {
         else if (status === 'success') {
             return data = users.map((el, idx) => {
                 return (
-                    <Link>
+                    <Link to={'/'}>
                         <div key={idx} style={{border: '1px solid'}}>
                             <h4>{el.id}</h4>
                             <h4>{el.title}</h4>
@@ -62,3 +61,22 @@ const mapDispatchToProps = dispatch => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(index)
+
+
+// export default function (props) {
+//     const dispatch = useDispatch();
+//     const state = useSelector(state=>{
+//         console.log(state);
+//            return  {
+//                 status: state.appReducer.status,
+//                 users: state.appReducer.users
+//             }});
+//     useEffect(() => {
+//         dispatch(getUsersAction())
+//     },[]);
+//     const{status,users}=state;
+//     return {
+//         if (state.status==='loading'){
+//            return <h2>Loadig</h2>}}
+//
+// }

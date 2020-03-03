@@ -3,32 +3,25 @@ import {
     USERS_LOADING,
     USERS_ERR
 } from '../../src/actions/actionTypes';
-import update from 'immutability-helper';
+// import update from 'immutability-helper';
 
 
-const initialState = {
-    count: 0,
-    users: [],
-    status: 'loading' // loading/success/err
-};
 
-export default function(state=initialState, action){
+
+export default function(state={}, action){
     switch (action.type) {
         case USERS_LOADING:
-            return update(state, {
-                status: { $set: 'loading'}
-            });
+            return {...state, status: 'loading'};
         case USERS_SUCCESS:
             console.log(state);
-            return update(state, {
-                users: { $set: action.users },
-                status: { $set: 'success'},
-
-            });
+            return {...state,
+                users: action.users ,
+                status: 'success'
+            };
         case USERS_ERR:
-            return update(state, {
-                status: { $set: 'err'}
-            });
+            return {...state,
+                status: 'err'
+            };
         default:
             return state;
     }
