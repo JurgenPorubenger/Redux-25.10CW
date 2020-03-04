@@ -3,11 +3,8 @@ import thunk from 'redux-thunk';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import reducers from './reducers';
 
-const initialState = {
-    users: [],
-    status: 'loading' // loading/success/err
-};
-const store = createStore(reducers, initialState, composeWithDevTools(
+
+const store = createStore(reducers, composeWithDevTools(
     applyMiddleware(thunk)));
 
 export default store;
